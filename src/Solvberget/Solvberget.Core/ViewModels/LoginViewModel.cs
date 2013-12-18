@@ -72,7 +72,8 @@ namespace Solvberget.Core.ViewModels
 
         private async void ExecuteLoginCommand(MyPageViewModel page)
         {
-            IsLoading = true;
+			IsLoading = true;
+			Message = string.Empty;
 
             ButtonPressed = true;
             _userAuthenticationService.SetUser(UserName);
@@ -113,6 +114,7 @@ namespace Solvberget.Core.ViewModels
         private async void ExecuteForgotPasswordCommand(string userId)
         {
             IsLoading = true;
+			Message = string.Empty;
             if (string.IsNullOrEmpty(userId))
             {
                 Message = "Ugyldig lånernummer";
