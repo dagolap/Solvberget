@@ -15,7 +15,7 @@ SceneScene1.prototype.initialize = function () {
 SceneScene1.prototype.handleKeyDown = function (keyCode) {
 	switch (keyCode) {
 		case sf.key.ENTER:
-			document.location = 'http://solvberget.prestegarden.com/#/'+tvID;
+			document.location = 'http://solvbergetapp.cloudapp.net/infoscreen/#/'+tvID;
 			break;
 		default:
 			break;
