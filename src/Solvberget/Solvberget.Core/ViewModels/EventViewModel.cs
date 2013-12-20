@@ -79,7 +79,7 @@ namespace Solvberget.Core.ViewModels
 
         public string TimeAndPlaceSummaryNoPrice
         {
-            get { return string.Format("{0}{1}", Date, null != Time ? "" + Time : string.Empty); }
+            get { return string.Format("{0}, {1}", Date, null != Time ? "" + Time : string.Empty); }
         }
     }
 }
