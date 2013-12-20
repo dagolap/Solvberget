@@ -10,7 +10,7 @@ using Solvberget.Droid.Views.WebClients;
 
 namespace Solvberget.Droid.Views.Fragments
 {
-    [Activity(Label = "Webside", Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(HomeView))]
+    [Activity(Label = "Webside", Theme = "@style/MyTheme", Icon = "@drawable/ic_launcher", ParentActivity = typeof(HomeView))]
     [MetaData("android.support.PARENT_ACTIVITY", Value = "solvberget.droid.views.HomeView")]
     public class GenericWebViewView : MvxActionBarActivity
     {

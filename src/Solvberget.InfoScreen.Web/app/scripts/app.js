@@ -1,8 +1,8 @@
 'use strict';
 
 var $$config =  {
-    apiPrefix: 'http://localhost:8080/',
-    appUrlPrefix : 'http://localhost:9000/',
+    apiPrefix: 'http://solvbergetapp.cloudapp.net/api/',
+    appUrlPrefix : 'http://solvbergetapp.cloudapp.net/infoscreen/',
     apiPrefixEscaped : function(){
         return this.apiPrefix.replace(/:(\d+)/,'\\:$1'); // workaround to escape port number : so it doesn't get interpreted as a variable by $resource
       }
