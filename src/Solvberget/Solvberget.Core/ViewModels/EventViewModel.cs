@@ -76,5 +76,10 @@ namespace Solvberget.Core.ViewModels
 				return string.Format("{0}{1}, {2}", Date, null != Time ? " " + Time : string.Empty, Price); 
 			}
 		}
+
+        public string TimeAndPlaceSummaryNoPrice
+        {
+            get { return string.Format("{0}{1}", Date, null != Time ? "" + Time : string.Empty); }
+        }
     }
 }
