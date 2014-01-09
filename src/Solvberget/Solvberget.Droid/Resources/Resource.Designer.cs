@@ -1580,12 +1580,6 @@ namespace Solvberget.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f0a000e
-			public const int ApplicationName = 2131361806;
-			
-			// aapt resource value: 0x7f0a000d
-			public const int Hello = 2131361805;
-			
 			// aapt resource value: 0x7f0a0001
 			public const int abc_action_bar_home_description = 2131361793;
 			
@@ -1625,32 +1619,32 @@ namespace Solvberget.Droid
 			// aapt resource value: 0x7f0a000b
 			public const int abc_shareactionprovider_share_with_application = 2131361803;
 			
-			// aapt resource value: 0x7f0a0010
-			public const int drawer_close = 2131361808;
+			// aapt resource value: 0x7f0a000e
+			public const int drawer_close = 2131361806;
 			
-			// aapt resource value: 0x7f0a000f
-			public const int drawer_open = 2131361807;
-			
-			// aapt resource value: 0x7f0a0017
-			public const int forgot_pass_description = 2131361815;
-			
-			// aapt resource value: 0x7f0a0011
-			public const int menu_refresh = 2131361809;
-			
-			// aapt resource value: 0x7f0a0013
-			public const int menu_share = 2131361811;
-			
-			// aapt resource value: 0x7f0a0012
-			public const int menu_star = 2131361810;
-			
-			// aapt resource value: 0x7f0a0014
-			public const int search_title = 2131361812;
+			// aapt resource value: 0x7f0a000d
+			public const int drawer_open = 2131361805;
 			
 			// aapt resource value: 0x7f0a0015
-			public const int user_id = 2131361813;
+			public const int forgot_pass_description = 2131361813;
 			
-			// aapt resource value: 0x7f0a0016
-			public const int user_pin = 2131361814;
+			// aapt resource value: 0x7f0a000f
+			public const int menu_refresh = 2131361807;
+			
+			// aapt resource value: 0x7f0a0011
+			public const int menu_share = 2131361809;
+			
+			// aapt resource value: 0x7f0a0010
+			public const int menu_star = 2131361808;
+			
+			// aapt resource value: 0x7f0a0012
+			public const int search_title = 2131361810;
+			
+			// aapt resource value: 0x7f0a0013
+			public const int user_id = 2131361811;
+			
+			// aapt resource value: 0x7f0a0014
+			public const int user_pin = 2131361812;
 			
 			static String()
 			{
