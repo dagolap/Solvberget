@@ -12,14 +12,19 @@ SceneScene1.prototype.initialize = function () {
 	$('#id-label').html(tvID);
 };
 
+var pluginAPI = new Common.API.Plugin();
+
 SceneScene1.prototype.handleKeyDown = function (keyCode) {
 	switch (keyCode) {
 		case sf.key.ENTER:
-			if (this.hostReachable()) {
+
+		if (this.hostReachable()) {
+				pluginAPI.setOffScreenSaver();
 				document.location = WEB_APP_URL+tvID;
-			} else {
+				} else {
 				$('#feedback-label').html('Kunne ikke koble til infoskjerm-app. Prøv igjen senere.');
 			}
+
 			break;
 		default:
 			break;
