@@ -20,7 +20,7 @@ namespace Solvberget.Nancy.Modules
         {
             var events = new List<EventDto>();
 
-            using (var file = new StreamReader(env.GetEventsPath(), Encoding.GetEncoding("ISO-8859-1")))
+            using (var file = new StreamReader(env.GetEventsPath(), Encoding.GetEncoding("UTF-8")))
             {
                 XDocument doc = XDocument.Load(file);
 
