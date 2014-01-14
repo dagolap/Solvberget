@@ -111,7 +111,7 @@ namespace Solvberget.Nancy
 
         public string GetFavoritesPath(string userId)
         {
-            var favPath = Path.Combine(_applicationAppDataPath, @"favorites\");
+            var favPath = Path.Combine(_applicationContentDataPath, @"favorites\");
 
             if(!Directory.Exists(favPath)) Directory.CreateDirectory(favPath);
 
