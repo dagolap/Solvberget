@@ -7,9 +7,9 @@
 	background-color : #ffffff;
 	background-image : url('..\\..\\images\\background.png');
 }
-
+	
 #information-label {
-	color: rgba(255, 255, 255, 0);
+	color: rgba(255, 255, 255, 255);
 	position: absolute;
 	left: 160px;
 	width: 1000px;
