@@ -120,6 +120,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.0.14\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Visibility.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="FlurryAnalytics">
+      <HintPath>..\..\..\lib\FlurryAnalytics.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -157,6 +160,8 @@
     <Compile Include="DebugTrace.cs" />
     <Compile Include="Helpers\AndroidDtoDownloader.cs" />
     <Compile Include="Helpers\CustomPresenter.cs" />
+    <Compile Include="Helpers\FlurryAnalyticsService.cs" />
+    <Compile Include="Helpers\FlurryClient.cs" />
     <Compile Include="Helpers\MyActionBarDrawerToggle.cs" />
     <Compile Include="LinkerPleaseInclude.cs">
       <SubType>
