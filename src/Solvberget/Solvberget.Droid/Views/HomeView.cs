@@ -380,13 +380,21 @@ namespace Solvberget.Droid.Views
         protected override void OnStart()
         {
             base.OnStart();
-            Mvx.Resolve<IAndroidAnalytics>().StartSession(Application.Context);
+            var analytics = Mvx.Resolve<IAndroidAnalytics>();
+            if (analytics != null)
+            {
+                analytics.StartSession(this);
+            }
         }
 
         protected override void OnStop()
         {
             base.OnStop();
-            Mvx.Resolve<IAndroidAnalytics>().EndSession(Application.Context);
+            var analytics = Mvx.Resolve<IAndroidAnalytics>();
+            if (analytics != null)
+            {
+                analytics.EndSession(this);
+            }
         }
     }
 }

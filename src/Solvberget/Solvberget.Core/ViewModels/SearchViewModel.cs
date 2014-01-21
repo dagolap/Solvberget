@@ -11,12 +11,10 @@ namespace Solvberget.Core.ViewModels
     public class SearchViewModel : BaseViewModel 
     {
         private readonly ISearchService _searchService;
-        private readonly IAnalyticsService _analytics;
 
-        public SearchViewModel(ISearchService searchService, IAnalyticsService analytics)
+        public SearchViewModel(ISearchService searchService)
         {
             _searchService = searchService;
-            _analytics = analytics;
             Title = "Søk";
         }
 
@@ -74,7 +72,7 @@ namespace Solvberget.Core.ViewModels
         {
             IsLoading = true;
             var lastquery = Query;
-            _analytics.LogEvent("Search_Submit", new Dictionary<string, string>
+            Analytics.LogEvent("Search_Submit", new Dictionary<string, string>
             {
                 { "query", lastquery }
             });

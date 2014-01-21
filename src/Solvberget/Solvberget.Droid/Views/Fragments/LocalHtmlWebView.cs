@@ -2,10 +2,12 @@ using Android.App;
 using Android.Views;
 using Android.Webkit;
 using Android.Widget;
+using Cirrious.CrossCore;
 using Cirrious.MvvmCross.Binding;
 using Cirrious.MvvmCross.Binding.BindingContext;
 using Solvberget.Core.ViewModels;
 using Solvberget.Droid.ActionBar;
+using Solvberget.Droid.Helpers;
 using Solvberget.Droid.Views.WebClients;
 
 namespace Solvberget.Droid.Views.Fragments
@@ -83,6 +85,26 @@ namespace Solvberget.Droid.Views.Fragments
                 return true;
             }
             return base.OnKeyDown(keyCode, e);
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            var analytics = Mvx.Resolve<IAndroidAnalytics>();
+            if (analytics != null)
+            {
+                analytics.StartSession(this);
+            }
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            var analytics = Mvx.Resolve<IAndroidAnalytics>();
+            if (analytics != null)
+            {
+                analytics.EndSession(this);
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Solvberget.Droid.Helpers
 {
     public class FlurryAnalyticsService :  IAnalyticsService, IAndroidAnalytics
     {
-        public const string ApiKeyValue = "";
+        public const string ApiKeyValue = "G3T5P49RBR984Y7DKQ73";
 
         public void StartSession() { }
 
