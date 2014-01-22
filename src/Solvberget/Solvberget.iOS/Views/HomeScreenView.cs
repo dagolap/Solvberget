@@ -49,7 +49,13 @@ namespace Solvberget.iOS
 		{
 			base.ViewDidAppear(animated);
 
-			CreateMenu();
+			ViewModel.WaitForReady(() => InvokeOnMainThread(CreateMenu));
+		}
+
+		public override void ViewDidDisappear(bool animated)
+		{
+			base.ViewDidDisappear(animated);
+			foreach(var v in ScrollView.Subviews) v.RemoveFromSuperview();
 		}
 
 		public override void DidRotate(UIInterfaceOrientation fromInterfaceOrientation)
@@ -59,10 +65,8 @@ namespace Solvberget.iOS
 			CreateMenu();
 		}
 
-		private void CreateMenu(bool animate = true)
+		private void CreateMenu()
 		{
-			foreach(var v in ScrollView.Subviews) v.RemoveFromSuperview();
-
 			UIView myPageBox;
 
 			if (View.Bounds.Width > 700)
@@ -140,9 +144,7 @@ namespace Solvberget.iOS
 				ScrollView.Subviews.Max(s => s.Frame.Bottom + 20f));
 
 
-			if (!animate)
-				return;
-
+		
 			foreach (var v in ScrollView.Subviews)
 			{
 				v.Alpha = 0.0f;
@@ -187,12 +189,12 @@ namespace Solvberget.iOS
 
 			if (height < 120) title.Font = Application.ThemeColors.DefaultFont.WithSize(12f);
 			else if (height < 200) title.Font = Application.ThemeColors.DefaultFont;
-			else title.Font = Application.ThemeColors.TitleFont;
+			else title.Font = Application.ThemeColors.TitleFont.WithSize(20f);
 
 			title.Text = item.Title;
 
 			var size = title.SizeThatFits(new SizeF(width, 0));
-			var titleX = 5;
+			var titleX = (width-size.Width) / 2;
 			var titleY = height-size.Height-5f;
 
 			title.Frame = new RectangleF(new PointF(titleX,titleY), size);
@@ -201,14 +203,15 @@ namespace Solvberget.iOS
 
 			var icon = new UILabel();
 			icon.BackgroundColor = UIColor.Clear;
-			icon.Font = Application.ThemeColors.IconFont.WithSize(width / 3);
+			icon.Font = Application.ThemeColors.IconFont.WithSize(height / 3);
 
+			var heightOffset = height < 200 ? -3 : 0;
 
 			icon.TextColor = UIColor.White;
 			icon.TextAlignment = UITextAlignment.Center;
 			icon.LineBreakMode = UILineBreakMode.CharacterWrap;
 			icon.Frame = new RectangleF(0,0, height - 40, height - 40);
-			icon.Center = new PointF(width / 2, height / 2);
+			icon.Center = new PointF(width / 2, (height / 2)+heightOffset);
 			icon.Text = item.IconChar;
 
 			view.Add(icon);
@@ -283,23 +286,15 @@ namespace Solvberget.iOS
 			switch (item.IconChar)
 			{
 				case "m": // min side
-					return UIColor.FromRGB(0xFF, 0x99, 0x00);
+					return UIColor.FromRGB(53,180,70);
 				case "a": // arrangementer
-					return UIColor.FromRGB(0xCC, 0x33, 0x00);
+					return UIColor.FromRGB(22,143,89);
 				case "s": // søk
-					return UIColor.FromRGB(0x00, 0x55, 0x22);
-				case "e": // blogger
-					return UIColor.FromRGB(0x88, 0xBB, 0x00);
-				case "n": // nyheter
-					return UIColor.FromRGB(0x88, 0xBB, 0x00);
+					return UIColor.FromRGB(0,115,19);
 				case "h": // anbefalinger
-					return UIColor.FromRGB(0x00, 0x33, 0x66);
-				case "å": // åpningstider
-					return UIColor.FromRGB(0x00, 0x99, 0xCC);
-				case "c": // kontakt oss
-					return UIColor.FromRGB(0x00, 0x99, 0xCC);
+					return UIColor.FromRGB(102,207,40);
 				default : 
-					return UIColor.FromRGB(0xCC, 0x33, 0x00);
+					return UIColor.FromRGB(53,180,70);
 
 			}
 		}

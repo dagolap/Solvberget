@@ -27,7 +27,7 @@ namespace Solvberget.iOS
 
 			LostCredentialsButton.SetTitleColor(Application.ThemeColors.Main, UIControlState.Normal);
 
-			//LostCredentialsButton.TouchUpInside += (s,e) => ViewModel... // todo!!
+			LostCredentialsButton.TouchUpInside += (s, e) => ViewModel.ForgotPasswordCommand.Execute(Username.Text);
 
 			var set = this.CreateBindingSet<LoginView, LoginViewModel>();
 			set.Bind(Username).To(vm => vm.UserName);
