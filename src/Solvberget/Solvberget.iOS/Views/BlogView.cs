@@ -64,7 +64,11 @@ namespace Solvberget.iOS
 				var itemCtrl = new TitleAndSummaryItem();
 				itemCtrl.Frame = new RectangleF(padding, y, View.Frame.Width - 2 * padding, 10);
 
-				itemCtrl.Clicked += (sender, e) => ViewModel.ShowDetailsCommand.Execute(item);
+				itemCtrl.Clicked += (sender, e) =>
+				{
+					UIApplication.SharedApplication.OpenUrl(new NSUrl(item.Url));
+
+				};
 
 				itemCtrl.TitleLabelText = item.Title;
 
