@@ -17,8 +17,9 @@ namespace Solvberget.Core.ViewModels
         {
             _userService = userService;
             _parent = parent;
-        }
 
+            base.Start();
+        }
 
         private string _docId;
         public string DocId 
@@ -135,10 +136,10 @@ namespace Solvberget.Core.ViewModels
 				result = await _userService.AddReservation(DocId, Branch);
 				_parent.IsReservable = !result.Success;
 				_parent.IsReservedByUser = result.Success;
-                Analytics.LogEvent("Media_Hold", new Dictionary<string, string>
-                {
-                    { "title", _parent.Title }
-                });
+			    Analytics.LogEvent("Media_Hold", new Dictionary<string, string>
+			    {
+			        {"title", _parent.Title}
+			    });
 			}
 
             _parent.IsLoading = false;

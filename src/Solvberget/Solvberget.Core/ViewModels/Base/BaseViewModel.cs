@@ -11,7 +11,12 @@ namespace Solvberget.Core.ViewModels.Base
     {
 		public static bool AddEmptyItemForEmptyLists = true;
 
-        public IAnalyticsService Analytics { get; set; }
+        private IAnalyticsService _analytics;
+        public IAnalyticsService Analytics
+        {
+            get { return _analytics ?? (_analytics = Mvx.Resolve<IAnalyticsService>() ?? new VoidAnalyticsService()); }
+            set { _analytics = value; }
+        }
 
         readonly ManualResetEvent _viewModelReady = new ManualResetEvent(false);
 
@@ -27,9 +32,7 @@ namespace Solvberget.Core.ViewModels.Base
         public override void Start()
         {
             base.Start();
-            Analytics = Mvx.Resolve<IAnalyticsService>() ?? new VoidAnalyticsService();
             Analytics.LogEvent("VM_" + GetType().Name);
-            
         }
 
         protected void NotifyViewModelReady()

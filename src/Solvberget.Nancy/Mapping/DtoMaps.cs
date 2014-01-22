@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Autofac;
-using Autofac.Core;
 using Solvberget.Core.DTOs;
 using Solvberget.Domain.Aleph;
 using Solvberget.Domain.Documents;
-using Solvberget.Domain.Events;
 using Solvberget.Domain.Favorites;
 using Solvberget.Domain.Lists;
 using Solvberget.Domain.Users;
