@@ -15,7 +15,7 @@ namespace Solvberget.Core.Properties {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+	public class Resources {
         
         private static System.Resources.ResourceManager resourceMan;
         

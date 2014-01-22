@@ -49,7 +49,13 @@ namespace Solvberget.iOS
 		{
 			base.ViewDidAppear(animated);
 
-			CreateMenu();
+			ViewModel.WaitForReady(() => InvokeOnMainThread(CreateMenu));
+		}
+
+		public override void ViewDidDisappear(bool animated)
+		{
+			base.ViewDidDisappear(animated);
+			foreach(var v in ScrollView.Subviews) v.RemoveFromSuperview();
 		}
 
 		public override void DidRotate(UIInterfaceOrientation fromInterfaceOrientation)
@@ -59,10 +65,8 @@ namespace Solvberget.iOS
 			CreateMenu();
 		}
 
-		private void CreateMenu(bool animate = true)
+		private void CreateMenu()
 		{
-			foreach(var v in ScrollView.Subviews) v.RemoveFromSuperview();
-
 			UIView myPageBox;
 
 			if (View.Bounds.Width > 700)
@@ -140,9 +144,7 @@ namespace Solvberget.iOS
 				ScrollView.Subviews.Max(s => s.Frame.Bottom + 20f));
 
 
-			if (!animate)
-				return;
-
+		
 			foreach (var v in ScrollView.Subviews)
 			{
 				v.Alpha = 0.0f;
