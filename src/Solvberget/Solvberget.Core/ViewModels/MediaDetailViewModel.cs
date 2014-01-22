@@ -310,6 +310,10 @@ namespace Solvberget.Core.ViewModels
 			if (result.Success)
 			{
 				IsFavorite = true;
+                Analytics.LogEvent("Media_Favorite", new Dictionary<string, string>
+                {
+                    { "title", Title }
+                });
 			}
         }
 
@@ -326,6 +330,10 @@ namespace Solvberget.Core.ViewModels
 			if(result.Success)
 			{
             	IsFavorite = false;
+                Analytics.LogEvent("Media_UnFavorite", new Dictionary<string, string>
+                {
+                    { "title", Title }
+                });
 			}
         }
 
