@@ -62,6 +62,7 @@ namespace Solvberget.iOS
 		{
 			base.DidRotate(fromInterfaceOrientation);
 
+			foreach(var v in ScrollView.Subviews) v.RemoveFromSuperview();
 			CreateMenu();
 		}
 
