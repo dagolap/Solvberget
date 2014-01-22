@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Solvberget.Core.Properties;
 using Solvberget.Core.Services.Interfaces;
 using Solvberget.Core.ViewModels.Base;
@@ -79,6 +80,11 @@ namespace Solvberget.Core.ViewModels
             Favorites.Remove(favorite);
             FavoriteIsRemoved = true;
             await _service.RemoveUserFavorite(documentNumber);
+
+            Analytics.LogEvent("Media_UnFavorite", new Dictionary<string, string>
+            {
+                { "title", favorite.Title }
+            });
         }
 
         public void AddFavorite(FavoriteViewModel favoriteViewModel)
