@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/LargeText"
             android:text="EventTitle"
+            android:maxLines="2"
             local:MvxBind="Text Title"
             android:paddingBottom="5dp" />
         <TextView
@@ -49,6 +50,6 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/SmallText"
             android:text="From"
-            local:MvxBind="Text Time" />
+            local:MvxBind="Text TimeAndPlaceSummaryNoPrice" />
     </LinearLayout>
 </LinearLayout>

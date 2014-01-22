@@ -10,7 +10,7 @@ using Solvberget.Droid.Views.WebClients;
 
 namespace Solvberget.Droid.Views.Fragments
 {
-    [Activity(Label = "Webside", Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(HomeView))]
+    [Activity(Label = "Webside", Theme = "@style/MyTheme", Icon = "@drawable/ic_launcher", ParentActivity = typeof(HomeView))]
     [MetaData("android.support.PARENT_ACTIVITY", Value = "solvberget.droid.views.HomeView")]
     public class LocalHtmlWebView : MvxActionBarActivity
     {
@@ -51,7 +51,14 @@ namespace Solvberget.Droid.Views.Fragments
             _webView.SetWebViewClient(webViewClient);
             _webView.SetWebChromeClient(webChromeClient);
     
-            _webView.LoadDataWithBaseURL(null, ViewModel.Html, "text/html", "UTF-8", null);
+            if (!string.IsNullOrEmpty(ViewModel.Url))
+            {
+                _webView.LoadUrl(ViewModel.Url);
+            }
+            else if (!string.IsNullOrEmpty(ViewModel.Html))
+            {
+                _webView.LoadDataWithBaseURL(null, ViewModel.Html, "text/html", "UTF-8", null);
+            }
         }
 
         protected override void OnResume()

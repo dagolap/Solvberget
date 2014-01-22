@@ -93,10 +93,25 @@ namespace Solvberget.Core.ViewModels
             var blogPost = await _blogService.GetBlogPost(Id.ToString(), post.Id.ToString());
             var html = blogPost.Content;
             var title = blogPost.Title;
+            var url = post.Url;
 
             IsLoading = false;
 
-            ShowViewModel<LocalHtmlWebViewModel>(new { html = html, title = title });
+            ShowViewModel<LocalHtmlWebViewModel>(new { html = html, title = title, url = url });
+        }
+
+        private MvxCommand<BlogPostViewModel> _showDetailsNoLoadingCommand;
+        public ICommand ShowDetailsNoLoadingCommand
+        {
+            get
+            {
+                return _showDetailsNoLoadingCommand ?? (_showDetailsNoLoadingCommand = new MvxCommand<BlogPostViewModel>(ExecuteShowDetailsNoLoadingCommand));
+            }
+        }
+
+        private async void ExecuteShowDetailsNoLoadingCommand(BlogPostViewModel post)
+        {
+            ShowViewModel<LocalHtmlWebViewModel>(new { html = "", title = post.Title, url = post.Url });
         }
     }
 }

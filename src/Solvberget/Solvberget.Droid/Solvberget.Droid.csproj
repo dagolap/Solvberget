@@ -44,7 +44,8 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
@@ -364,21 +365,17 @@
     <AndroidResource Include="Resources\Drawable-hdpi\drawer_shadow_light.9.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_drawer_light.png" />
-    <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_refresh.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\drawer_shadow_dark.9.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\drawer_shadow_light.9.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_drawer_light.png" />
-    <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_menu_refresh.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\drawer_shadow_dark.9.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\drawer_shadow_light.9.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_drawer_light.png" />
-    <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_menu_refresh.png" />
-    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Menu\refresh.xml" />
     <AndroidResource Include="Resources\Values\colors.xml">
       <SubType>Designer</SubType>
@@ -439,6 +436,11 @@
     <AndroidResource Include="Resources\Drawable-hdpi\splash_logo.9.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\splash_logo.9.png" />
     <AndroidResource Include="Resources\Drawable\badge.xml" />
+    <AndroidResource Include="Resources\Drawable\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_launcher.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solvberget.Core\Solvberget.Core.csproj">

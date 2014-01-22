@@ -10,5 +10,6 @@ namespace Solvberget.Core.DTOs
         public string Author { get; set; }
         public DateTime Published { get; set; }
         public string BlogId { get; set; }
+        public string Url { get; set; }
     }
 }

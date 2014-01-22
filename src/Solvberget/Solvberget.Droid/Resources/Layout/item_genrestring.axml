@@ -7,7 +7,6 @@
     <TextView
         android:text="Sjanger"
         android:paddingTop="10px"
-        android:paddingLeft="10px"
         android:textAppearance="@style/MediaDetailFieldContent"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

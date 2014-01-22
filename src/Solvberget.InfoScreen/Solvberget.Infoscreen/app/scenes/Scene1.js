@@ -1,4 +1,4 @@
-WEB_APP_URL = "https://www.google.com/search?q=";
+WEB_APP_URL = 'http://solvbergetapp.cloudapp.net/infoscreen/#/';
 
 function SceneScene1() { };
 
@@ -12,10 +12,19 @@ SceneScene1.prototype.initialize = function () {
 	$('#id-label').html(tvID);
 };
 
+var pluginAPI = new Common.API.Plugin();
+
 SceneScene1.prototype.handleKeyDown = function (keyCode) {
 	switch (keyCode) {
 		case sf.key.ENTER:
-			document.location = 'http://solvberget.prestegarden.com/#/'+tvID;
+
+		if (this.hostReachable()) {
+				pluginAPI.setOffScreenSaver();
+				document.location = WEB_APP_URL+tvID;
+				} else {
+				$('#feedback-label').html('Kunne ikke koble til infoskjerm-app. Prøv igjen senere.');
+			}
+
 			break;
 		default:
 			break;
@@ -43,6 +52,20 @@ SceneScene1.prototype.makeid = function()
         text += possible.charAt(Math.floor(Math.random() * possible.length));
 
     return text;
+};
+
+SceneScene1.prototype.hostReachable = function() {
+	  var xhr = new XMLHttpRequest();
+
+	  // Request HEAD from infoscreen webapp. Rand param used to make sure no caching is involved.
+	  xhr.open( "HEAD", WEB_APP_URL + "/?rand=" + Math.floor((1 + Math.random()) * 0x10000), false );
+
+	  try {
+	    xhr.send();
+	    return ( xhr.status >= 200 && xhr.status < 300 || xhr.status === 304 );
+	  } catch (error) {
+	    return false;
+	  }
 };
 
 SceneScene1.prototype.handleShow = function (data) { };

@@ -1,7 +1,7 @@
 'use strict';
 
 var $$config =  {
-    apiPrefix: 'http://localhost:39465/',
+    apiPrefix: 'http://localhost:8080/',
     appUrlPrefix : 'http://localhost:9000/',
     apiPrefixEscaped : function(){
         return this.apiPrefix.replace(/:(\d+)/,'\\:$1'); // workaround to escape port number : so it doesn't get interpreted as a variable by $resource
@@ -17,7 +17,7 @@ angular.module('Solvberget.WebApp', ['globalErrors', 'ngCookies', 'ngResource', 
                 reloadOnSearch: false
             })
             .when('/min-side', {
-                redirectTo: '/minside/favoritter'
+                redirectTo: '/min-side/favoritter'
             })
             .when('/min-side/favoritter', {
                 templateUrl: 'views/my.favorites.html',

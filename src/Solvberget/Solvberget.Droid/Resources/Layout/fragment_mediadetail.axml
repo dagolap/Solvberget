@@ -95,11 +95,13 @@
                 android:id="@+id/linearLayout1"
                 android:background="@color/ui_itembackground"
                 local:MvxBind="ItemsSource Availabilities"
-                local:MvxItemTemplate="@layout/item_media_availability">
+                local:MvxItemTemplate="@layout/item_media_availability"
+                android:paddingBottom="8dp">
             </MvxLinearLayout>
             <TextView
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
+                android:paddingTop="10dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="ANMELDELSE"
@@ -117,8 +119,13 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:background="@color/ui_itembackground"
-                local:MvxBind="Visibility Visibility(Review)">
+                local:MvxBind="Visibility Visibility(Review)"
+                android:paddingBottom="5dp">
                 <TextView
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     local:MvxBind="TextFormatted StringToHtml(Review); Visibility Visibility(Review)" />
@@ -126,6 +133,7 @@
             <TextView
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
+                android:paddingTop="10dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/s_main_green"
@@ -143,6 +151,8 @@
                 android:id="@+id/linearLayout1"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:background="@color/ui_itembackground">
                 <TextView
                     android:paddingLeft="8dp"
