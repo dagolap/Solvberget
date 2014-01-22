@@ -93,10 +93,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout1"
-                android:background="@color/ui_itembackground"
                 local:MvxBind="ItemsSource Availabilities"
                 local:MvxItemTemplate="@layout/item_media_availability"
-                android:paddingBottom="8dp">
+                android:paddingBottom="8dp"
+                android:dividerHeight="10dp">
             </MvxLinearLayout>
             <TextView
                 android:paddingLeft="8dp"
