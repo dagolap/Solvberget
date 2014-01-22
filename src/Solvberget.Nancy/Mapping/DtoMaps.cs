@@ -225,7 +225,7 @@ namespace Solvberget.Nancy.Mapping
                     Department = availability.Department.DefaultIfEmpty("").Aggregate((acc, dep) =>
                     {
                         if (String.IsNullOrEmpty(acc)) return dep;
-                        return acc + " - " + dep;
+                        return acc + ", " + dep;
                     }),
 
                     Collection = availability.PlacementCode,
