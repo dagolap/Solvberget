@@ -4,6 +4,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Solvberget.Core.ViewModels;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Solvberget.iOS
 {
@@ -74,7 +75,12 @@ namespace Solvberget.iOS
 
 				itemCtrl.SummaryLabelText = item.Published.ToString("dddd d. MMMM", new CultureInfo("nb-no")).ToUpperInvariant();
 
-				if(!String.IsNullOrEmpty(item.Content)) itemCtrl.SummaryLabelText += Environment.NewLine + Environment.NewLine + item.Content.Replace("&nbsp;", " ").Trim();
+				item.Content = Regex.Replace(item.Content.Replace(@"&#8230;", "...").Replace(@"&nbsp;", " "), 
+										@"&#\d*?;", String.Empty);
+
+				if(!String.IsNullOrEmpty(item.Content)) itemCtrl.SummaryLabelText += Environment.NewLine + Environment.NewLine 
+					                                                                 + item.Content;
+
 
 				ItemsContainer.Add(itemCtrl.View);
 
