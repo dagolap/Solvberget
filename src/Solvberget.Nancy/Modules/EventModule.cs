@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,8 +35,8 @@ namespace Solvberget.Nancy.Modules
                     ev.Description = element.Descendants("description").First().Value;
                     ev.ImageUrl = element.Descendants("imageUrl").First().Value;
                     ev.Location = element.Descendants("location").First().Value;
-                    ev.Start = DateTime.Parse(element.Descendants("start").First().Value);
-                    ev.End = DateTime.Parse(element.Descendants("end").First().Value);
+                    ev.Start = DateTime.ParseExact(element.Descendants("start").First().Value, "MM.dd.yyyy HH:mm", CultureInfo.InvariantCulture);
+                    ev.End = DateTime.ParseExact(element.Descendants("end").First().Value, "MM.dd.yyyy HH:mm", CultureInfo.InvariantCulture);
                     ev.TicketPrice = Double.Parse(element.Descendants("ticketPrice").First().Value);
                     ev.TicketUrl = element.Descendants("ticketUrl").First().Value;
                 }

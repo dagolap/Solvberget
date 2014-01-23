@@ -15,7 +15,6 @@ namespace Solvberget.Core
                 .RegisterAsLazySingleton();
 
             Mvx.LazyConstructAndRegisterSingleton<IStringDownloader, HttpBodyDownloader>();
-
 			Mvx.LazyConstructAndRegisterSingleton<DtoDownloader, DtoDownloader>();
 
             // Bootstrapping up some stubs while developing. Just remove these lines to start using proper implementations
@@ -24,7 +23,6 @@ namespace Solvberget.Core
             // Mvx.LazyConstructAndRegisterSingleton<INewsService, NewsServiceTemporaryStub>();
             // Mvx.LazyConstructAndRegisterSingleton<ISuggestionsService, SuggestionsServiceTemporaryStub>();
             //Mvx.LazyConstructAndRegisterSingleton<IUserAuthenticationDataService, UserAuthenticationTemporaryStub>();
-
             RegisterAppStart<HomeViewModel>();
         }
     }

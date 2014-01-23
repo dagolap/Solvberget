@@ -153,7 +153,8 @@ namespace Solvberget.Domain.Aleph
                                                                                      { "MUSIK", "Musikkbiblioteket "},
                                                                                      { "MAG", "Magasin" },
                                                                                      { "VOKS", "Voksenavdelingen" },
-                                                                                     { "ATIDS", "Tidsskriftsavdelingen" }
+                                                                                     { "ATIDS", "Tidsskriftsavdelingen" },
+                                                                                     { "FORST", "Første etasje" }
                                                                                  };
     }
 }

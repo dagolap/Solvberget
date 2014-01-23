@@ -72,6 +72,10 @@ namespace Solvberget.Core.ViewModels
         {
             IsLoading = true;
             var lastquery = Query;
+            Analytics.LogEvent("Search_Submit", new Dictionary<string, string>
+            {
+                { "query", lastquery }
+            });
 
             var results = await _searchService.Search(Query);
             Results = (from document in results

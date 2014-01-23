@@ -5,6 +5,7 @@ using Cirrious.MvvmCross.Droid.Views;
 using Cirrious.MvvmCross.ViewModels;
 using Solvberget.Core;
 using Solvberget.Core.Services;
+using Solvberget.Core.Services.Interfaces;
 using Solvberget.Droid.Helpers;
 
 namespace Solvberget.Droid
@@ -32,6 +33,8 @@ namespace Solvberget.Droid
             base.InitializeLastChance();
 
             Mvx.LazyConstructAndRegisterSingleton<DtoDownloader, AndroidDtoDownloader>();
+            Mvx.LazyConstructAndRegisterSingleton<IAnalyticsService, FlurryAnalyticsService>();
+            Mvx.LazyConstructAndRegisterSingleton<IAndroidAnalytics, FlurryAnalyticsService>();
         }
     }
 }
