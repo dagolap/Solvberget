@@ -90,8 +90,9 @@ namespace Solvberget.Core.ViewModels
 
             if (response.Success)
             {
-				Load();
-				IsLoading = false;
+                Load();
+                IsLoading = false;
+                Analytics.LogEvent("Loan_Expand");
             }
         }
 

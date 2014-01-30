@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="Services\Interfaces\IAnalyticsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -99,6 +100,7 @@
     <Compile Include="Services\SuggestionsService.cs" />
     <Compile Include="Services\UserAuthenticationDataService.cs" />
     <Compile Include="Services\UserInformationService.cs" />
+    <Compile Include="Services\VoidAnalyticsService.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\BlogItemViewModel.cs" />
     <Compile Include="ViewModels\BlogOverviewViewModel.cs" />

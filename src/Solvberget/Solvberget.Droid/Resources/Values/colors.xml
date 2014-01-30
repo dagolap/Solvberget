@@ -31,5 +31,5 @@
   <color name="s_boxes">#fff4f4f4</color>
   <color name="s_hero">#ffF0FBEB</color>
   <color name="s_text">#ff333333</color>
-  <color name="s_text_weak">#ffcecece</color>
+  <color name="s_text_weak">#ff595959</color>
 </resources>

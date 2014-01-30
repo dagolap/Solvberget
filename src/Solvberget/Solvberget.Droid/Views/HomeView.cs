@@ -376,5 +376,25 @@ namespace Solvberget.Droid.Views
                 base.OnBackPressed();
             }
         }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            var analytics = Mvx.Resolve<IAndroidAnalytics>();
+            if (analytics != null)
+            {
+                analytics.StartSession(this);
+            }
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            var analytics = Mvx.Resolve<IAndroidAnalytics>();
+            if (analytics != null)
+            {
+                analytics.EndSession(this);
+            }
+        }
     }
 }
