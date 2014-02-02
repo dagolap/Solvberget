@@ -14,6 +14,8 @@ namespace Solvberget.Nancy.Mapping
 {
     public static class DtoMaps
     {
+        private static readonly string[] UnavailableStatuses = {"In processz38-status", "Waiting in queue"};
+
         public static LibrarylistDto Map(LibraryList list, IRepository documents = null)
         {
             if (null != documents)
@@ -49,7 +51,7 @@ namespace Solvberget.Nancy.Mapping
             {
                 Document = Map(documents.GetDocument(reservation.DocumentNumber, true)),
                 Reserved = holdFrom,
-                ReadyForPickup = reservation.Status != "In processz38-status", // business logic should not be here! :(
+                ReadyForPickup = !UnavailableStatuses.Contains(reservation.Status), // business logic should not be here! :(
                 PickupLocation = reservation.PickupLocation,
                 PickupDeadline = holdTo
             };
