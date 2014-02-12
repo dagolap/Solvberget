@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace Solvberget.Nancy.Modules
             var client = new WebClient();
             client.Encoding = Encoding.UTF8;
 
-            var organizerId = "106";
-            var apiToken = "PPzx4qar2JzcttANh8Rd";
+            var organizerId = ConfigurationManager.AppSettings["TicketCoOrganizerId"];
+            var apiToken = ConfigurationManager.AppSettings["TicketCoApiToken"];
 
             var eventsJson = client.DownloadString(new Uri(
                 String.Format("https://ticketco.no/api/public/v1/events?organizer_id={0}&token={1}", organizerId,
