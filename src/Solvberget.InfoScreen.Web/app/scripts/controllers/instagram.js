@@ -7,5 +7,6 @@ angular.module('solvbergetinfoScreenwebApp').controller('InstagramCtrl', functio
     if($scope.template.slideOptions) $scope.tagName = $scope.template.slideOptions.tagName;
     if (!$scope.tagName) $scope.tagName = 'sølvberget';
     $scope.blacklist = $rootScope.instagramBlacklist;
+    $scope.whitelist = $rootScope.instagramWhitelist;
 });
 

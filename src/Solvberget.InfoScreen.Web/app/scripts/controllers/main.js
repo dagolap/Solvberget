@@ -5,6 +5,7 @@ angular.module('solvbergetinfoScreenwebApp').controller('MainCtrl', function ($s
     // Each slide defines its own timeout interval.
     $scope.onSlidesReceived = function () {
         $rootScope.instagramBlacklist = $scope.slides.instagramBlacklist;
+        $rootScope.instagramWhitelist = $scope.slides.instagramWhitelist;
         $scope.slides = $scope.slides.slides;
         $scope.template=$scope.slides[0];
         $scope.count=0;
@@ -12,7 +13,8 @@ angular.module('solvbergetinfoScreenwebApp').controller('MainCtrl', function ($s
         $scope.nextSlide=function(timeOut) {
             $timeout(function() {
                 $scope.template = $scope.slides[$scope.count];
-                $scope.templateName = "views/slides/"+$scope.template.template+".html";
+                //$scope.templateName = "views/slides/"+$scope.template.template+".html";
+                $scope.templateName = "views/slides/instagram.html"; // TODO Fix back
                 $scope.count+=1;
                 if($scope.count>=$scope.slides.length) {
                     $scope.count=0;
