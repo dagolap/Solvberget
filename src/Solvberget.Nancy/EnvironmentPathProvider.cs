@@ -167,5 +167,10 @@ namespace Solvberget.Nancy
         {
             return Path.Combine(_applicationAppDataPath, @"infoscreen\instagram_blacklist.txt");
         }
+
+        public string GetInstagramWhitelistPath()
+        {
+            return Path.Combine(_applicationAppDataPath, @"infoscreen\instagram_whitelist.txt");   
+        }
     }
 }

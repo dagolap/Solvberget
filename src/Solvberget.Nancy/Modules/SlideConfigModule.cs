@@ -31,16 +31,27 @@ namespace Solvberget.Nancy.Modules
 
                     var slideConfig = slideConfigs[configName];
 
-                    var blackList = GetInstagramBlacklistFromFile();
                     return
-                        Response.AsJson(new {slides = slideConfig, instagramBlacklist = blackList})
-                            .AsCacheable(DateTime.Now.AddMinutes(20));
+                        Response.AsJson(new
+                        {
+                            slides = slideConfig, 
+                            instagramBlacklist = GetInstagramBlacklistFromFile(), 
+                            instagramWhitelist = GetInstagramWhitelistFromFile()
+                        })
+                        .AsCacheable(DateTime.Now.AddMinutes(20));
                 };
         }
 
         private string[] GetInstagramBlacklistFromFile()
         {
             var file = _pathProvider.GetInstagramBlacklistPath();
+
+            return !File.Exists(file) ? new string[0] : File.ReadAllLines(file);
+        }
+
+        private string[] GetInstagramWhitelistFromFile()
+        {
+            var file = _pathProvider.GetInstagramWhitelistPath();
 
             return !File.Exists(file) ? new string[0] : File.ReadAllLines(file);
         }

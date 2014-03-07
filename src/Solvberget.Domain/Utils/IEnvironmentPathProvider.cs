@@ -23,6 +23,7 @@ namespace Solvberget.Domain.Utils
         string GetWebAppDocumentDetailsPath(Document document);
         string GetSlideConfigurationPath();
         string GetInstagramBlacklistPath();
+        string GetInstagramWhitelistPath();
 
         string GetEventsPath();
     }
