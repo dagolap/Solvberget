@@ -18,7 +18,7 @@
             tagName: 'sølvberget',
             resolution: 'standard_resolution',
             links: false,
-            limit: 15,
+            limit: 20,
             clientId: '8cb0d60e537d4098b2c0f79194b2f82e',
             after: function () {
 
@@ -37,15 +37,28 @@
                 $scope.lastError = msg;
             },
             success: function(response) {
+                var imagePerUserCount = {};
+
                 for (var i = 0; i< response.data.length; i++) {
-                    if (typeof $scope.blacklist !== "undefined" && $scope.blacklist.indexOf(response.data[i].user.username) > -1) {
-                        console.log("Removing blacklisted item by user: " + response.data[i].user.username);
+                    var username = response.data[i].user.username;
+                    if (typeof $scope.blacklist !== "undefined" && $scope.blacklist.indexOf(username) > -1) {
+                        // User is blacklisted, remove image
+                        console.log("Removing blacklisted item by user: " + username);
                         response.data.splice(i, 1);
+                    } else if (typeof $scope.whitelist !== "undefined" && $scope.whitelist.indexOf(username == -1)) {
+                        // User is not blacklisted and not whitelisted. Treat as normal posting.
+                        if (typeof imagePerUserCount[username] === "undefined") imagePerUserCount[username] = 0;
+                        imagePerUserCount[username]++;
+
+                        if (imagePerUserCount[username] > $scope.postThreshold) response.data.splice(i, 1);
+                        console.log("removing image from user " + username + " because threshold amount reached");
+                        console.log("Images by " + username + " : " + imagePerUserCount[username]);
                     }
                 }
 
                 // Limit to ten images like before.
                 response.data = response.data.splice(0, 10);
+                console.log(response.data);
             }
         });
 
