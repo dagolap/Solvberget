@@ -9,7 +9,7 @@
 </div>
 <script type="text/javascript">
 
-    function viewLoaded($scope, $rootScope) {
+    function viewLoaded($scope) {
         
         var feed = new Instafeed({
             template: '<div class="item ig-item"><div class="col-xs-7"><img src="{{image}}" /></div><div class="col-xs-5 ig-item-caption"><div class="ig-item-caption">{{caption}}</div><h1>Fra @{{model.user.username}} på Instagram.</h1><h2>Tagg dine bilder med #sølvberget!</h2></div></div>',
@@ -38,17 +38,14 @@
             },
             success: function(response) {
                 for (var i = 0; i< response.data.length; i++) {
-                    if (typeof $rootScope.instagramBlacklist !== "undefined" && $rootScope.instagramBlacklist.indexOf(response.data[i].user.username) > -1) {
+                    if (typeof $scope.blacklist !== "undefined" && $scope.blacklist.indexOf(response.data[i].user.username) > -1) {
                         console.log("Removing blacklisted item by user: " + response.data[i].user.username);
                         response.data.splice(i, 1);
                     }
-                    console.log(response.data[i]);
                 }
 
                 // Limit to ten images like before.
                 response.data = response.data.splice(0, 10);
-
-                console.log(response);
             }
         });
 
