@@ -1,4 +1,4 @@
 {
     "default": [{"template": "events", "duration": 600}],
-    "PBZJGT": [{"template": "news", "duration": 60},{"template": "events", "duration": 10}]
+    "PBZJGT": [{"template": "instagram", "duration": 60, "slideOptions" : {"postThreshold":1000}},{"template": "news", "duration": 60},{"template": "events", "duration": 10}]
 }

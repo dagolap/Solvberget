@@ -50,15 +50,15 @@
                         if (typeof imagePerUserCount[username] === "undefined") imagePerUserCount[username] = 0;
                         imagePerUserCount[username]++;
 
-                        if (imagePerUserCount[username] > $scope.postThreshold) response.data.splice(i, 1);
-                        console.log("removing image from user " + username + " because threshold amount reached");
-                        console.log("Images by " + username + " : " + imagePerUserCount[username]);
+                        if (imagePerUserCount[username] > $scope.postThreshold) {
+                            response.data.splice(i, 1);
+                            console.log("removing image from user " + username + " because threshold amount reached");
+                        }
                     }
                 }
 
                 // Limit to ten images like before.
                 response.data = response.data.splice(0, 10);
-                console.log(response.data);
             }
         });
 
