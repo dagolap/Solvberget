@@ -5,7 +5,6 @@
         public string AgeLimit { get; set; }
         
         public string MediaInfo { get; set; }
-        public string MediaFormat { get; set; }
         
         public string[] ActorNames { get; set; }
         
