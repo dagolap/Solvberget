@@ -165,6 +165,7 @@ namespace Solvberget.Nancy.Mapping
             if(null != film.Genre) filmDto.Genres = film.Genre.ToArray();
             
             filmDto.MediaInfo = film.TypeAndNumberOfDiscs;
+            filmDto.MediaFormat = film.TypeOfMedia;
             
             if(null != film.ReferredPersons) filmDto.ReferredPeopleNames = film.ReferredPersons.Select(p => p.Name).ToArray();
             if(null != film.ReferencedPlaces) filmDto.ReferencedPlaces = film.ReferencedPlaces.ToArray();
