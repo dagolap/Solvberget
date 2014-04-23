@@ -1,4 +1,39 @@
 {
-    "default": [{"template": "image", "duration": 600, slideOptions : { image : "test.gif"}}],
-    "PBZJGT": [{"template": "news", "duration": 60},{"template": "events", "duration": 10}]
+    "default": [{"template": "news", "duration": 120}, {"template" : "events", "duration" : 120}, {"template" : "instagram", "duration" : 40 }, {"template": "twitter", "duration": 120}],
+   	
+	/********************/	
+	
+	/* top left */
+	"HSJMXT": [{"template": "twitter", "duration": 120}, {"template": "instagram", "duration": 40, SlideOptions : { "tagName" : "sølvberget"}}],
+    
+	/* top right */
+	"USAAWX": [{"template": "instagram", "duration": 40, SlideOptions : { "tagName" : "sølvberget"}}, {"template": "twitter", "duration": 120}],
+    
+	/* middle left */
+	"DDNWMN": [{"template": "news", "duration": 120}],
+    
+	/* middle right */
+	"XVHVQT": [{"template" : "events", "duration" : 120}],
+    
+	/* bottom left */
+	"CHXFOG": [{"template": "instagram", "duration": 40, SlideOptions : { "tagName" : "sølvberget"}}, {"template": "twitter", "duration": 120}],
+    
+	/* bottom right */
+	"MILRGL": [{"template": "twitter", "duration": 120}, {"template": "instagram", "duration": 40, SlideOptions : { "tagName" : "sølvberget"}}],
+    
+	/********************/
+	
+	/* reception, left */
+	"IVFWUL": [{"template": "news", "duration": 120}, {"template" : "instagram", "duration" : 40, SlideOptions : { "tagName" : "sølvberget"} }],
+    
+	/* reception, right */
+	"PQKVRU": [{"template" : "twitter", "duration" : 120}, {"template": "events", "duration": 120}],
+    	
+	/********************/
+	
+	/* entry, left */
+	"JLYREX": [{"template": "news", "duration": 120}],
+    
+	/* entry, right */
+	"DTLXNU": [{"template" : "events", "duration" : 120}]
 }
