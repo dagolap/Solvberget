@@ -15,12 +15,14 @@
             template: '<div class="item ig-item"><div class="col-xs-7"><img src="{{image}}" /></div><div class="col-xs-5 ig-item-caption"><div class="ig-item-caption">{{caption}}</div><h1>Fra @{{model.user.username}} på Instagram.</h1><h2>Tagg dine bilder med #sølvberget!</h2></div></div>',
             target: 'carousel-items',
             get: 'tagged',
-            tagName: 'sølvberget',
+            tagName: $scope.tagName,
             resolution: 'standard_resolution',
             links: false,
             limit: 10,
             clientId: '8cb0d60e537d4098b2c0f79194b2f82e',
-            after: function () {
+            after: function (a) {
+
+                console.log("after", a);
 
                 delete $scope.lastError;
 
@@ -30,6 +32,13 @@
                     interval: 10000
                 });
 
+            },
+            filter: function (image) {
+
+                console.log("filtering", image);
+                emoji.img_path = 'http://solvbergetapp.cloudapp.net/infoscreen/images/emoji/';
+                image.caption.text = emoji.replace_unified(image.caption.text);
+                return true;
             },
             error: function(msg) {
 
