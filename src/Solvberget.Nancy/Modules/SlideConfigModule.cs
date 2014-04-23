@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Nancy;
 using Nancy.LightningCache.Extensions;
+using Nancy.Responses;
 using Newtonsoft.Json;
 using Solvberget.Core.DTOs;
 using Solvberget.Domain.Utils;
@@ -37,6 +38,20 @@ namespace Solvberget.Nancy.Modules
             var rawConfigJson = File.ReadAllText(file);
 
             return JsonConvert.DeserializeObject<Dictionary<string, SlideConfigDto[]>>(rawConfigJson);
+        }
+    }
+
+    public class InfoscreenImageModule : NancyModule
+    {
+        public InfoscreenImageModule(IEnvironmentPathProvider pathProvider) : base("/infoscreen")
+        {
+            Get["/image/{name}"] = args =>
+            {
+                var imageFile = Path.Combine(pathProvider.GetInfoscreenImagesPath(), args.name);
+                string mimeType = "image/" + Path.GetExtension(imageFile).Substring(1);
+
+                return new StreamResponse(() => File.OpenRead(imageFile), mimeType);
+            };
         }
     }
 }

@@ -24,5 +24,6 @@ namespace Solvberget.Domain.Utils
         string GetSlideConfigurationPath();
 
         string GetEventsPath();
+        string GetInfoscreenImagesPath();
     }
 }

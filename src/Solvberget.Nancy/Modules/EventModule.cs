@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -31,29 +32,37 @@ namespace Solvberget.Nancy.Modules
             var organizerId = ConfigurationManager.AppSettings["TicketCoOrganizerId"];
             var apiToken = ConfigurationManager.AppSettings["TicketCoApiToken"];
 
-            var eventsJson = client.DownloadString(new Uri(
-                String.Format("https://ticketco.no/api/public/v1/events?organizer_id={0}&token={1}", organizerId,
-                    apiToken)));
-
-            var serializer = new JsonSerializer();
-            serializer.Culture = new CultureInfo("nb-no");
-
-            var ticketCoEvents = serializer.Deserialize<TicketCoResult>(new JsonTextReader(new StringReader(eventsJson)));
-
-            foreach (var element in ticketCoEvents.events)
+            try
             {
-                var ev = new EventDto();
-                events.Add(ev);
+                var eventsJson = client.DownloadString(new Uri(
+                    String.Format("https://ticketco.no/api/public/v1/events?organizer_id={0}&token={1}", organizerId,
+                        apiToken)));
 
-                ev.Id = element.mobile_link.GetHashCode();
-                ev.Name = element.title;
-                ev.Description = element.description;
-                ev.ImageUrl = element.image.iphone2x.url;
-                ev.Location = element.location_name;
-                ev.Start = element.start_at;
-                ev.End = element.end_at;
-                ev.TicketPrice = element.ticket_price;
-                ev.TicketUrl = element.mobile_link;
+                var serializer = new JsonSerializer();
+                serializer.Culture = new CultureInfo("nb-no");
+
+                var ticketCoEvents =
+                    serializer.Deserialize<TicketCoResult>(new JsonTextReader(new StringReader(eventsJson)));
+
+                foreach (var element in ticketCoEvents.events)
+                {
+                    var ev = new EventDto();
+                    events.Add(ev);
+
+                    ev.Id = element.mobile_link.GetHashCode();
+                    ev.Name = element.title;
+                    ev.Description = element.description;
+                    ev.ImageUrl = element.image.iphone2x.url;
+                    ev.Location = element.location_name;
+                    ev.Start = element.start_at;
+                    ev.End = element.end_at;
+                    ev.TicketPrice = element.ticket_price;
+                    ev.TicketUrl = element.mobile_link;
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("Failed to get events: " + ex.Message);
             }
 
             // todo: implement after new events integration in place
