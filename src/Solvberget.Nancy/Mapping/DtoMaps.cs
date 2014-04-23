@@ -53,7 +53,7 @@ namespace Solvberget.Nancy.Mapping
                 Reserved = holdFrom,
                 ReadyForPickup = !UnavailableStatuses.Contains(reservation.Status), // business logic should not be here! :(
                 PickupLocation = reservation.PickupLocation,
-                PickupDeadline = holdTo
+                PickupDeadline = holdEnd
             };
         }
 
