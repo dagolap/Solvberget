@@ -48,9 +48,9 @@ namespace Solvberget.Nancy.Modules
             Get["/image/{name}"] = args =>
             {
                 var imageFile = Path.Combine(pathProvider.GetInfoscreenImagesPath(), args.name);
-                string mimeType = "image/" + Path.GetExtension(imageFile).Substring(1);
+                string mimeType = MimeTypes.GetMimeType(imageFile);
 
-                return new StreamResponse(() => File.OpenRead(imageFile), mimeType);
+                return new GenericFileResponse(imageFile, mimeType);
             };
         }
     }

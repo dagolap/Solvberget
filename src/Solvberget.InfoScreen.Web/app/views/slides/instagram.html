@@ -22,8 +22,6 @@
             clientId: '8cb0d60e537d4098b2c0f79194b2f82e',
             after: function (a) {
 
-                console.log("after", a);
-
                 delete $scope.lastError;
 
                 $(".ig-item:first").addClass("active");
@@ -35,7 +33,6 @@
             },
             filter: function (image) {
 
-                console.log("filtering", image);
                 emoji.img_path = 'http://solvbergetapp.cloudapp.net/infoscreen/images/emoji/';
                 image.caption.text = emoji.replace_unified(image.caption.text);
                 return true;
