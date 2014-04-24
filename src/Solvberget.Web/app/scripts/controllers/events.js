@@ -21,7 +21,7 @@ angular.module('Solvberget.WebApp')
         $scope.getSubText = function(item){
 
             var dateFilter = $filter('date');
-            var subtext = dateFilter(item.start, 'fullDate');
+            var subtext = dateFilter(item.start, 'dd.MM.yyyy');
 
             if(item.start.hour > 0 || item.end.hour > 0) subtext += ' kl.' + $filter('date')(item.start, 'hh:mm');
 

@@ -35,7 +35,7 @@ angular.module('Solvberget.WebApp')
 
         $scope.subtextFor = function(loan) {
 
-            return dateFilter(loan.loanDate, 'mediumDate') + " - " + dateFilter(loan.dueDate, 'mediumDate') + ", " + loan.subLibrary;
+            return dateFilter(loan.loanDate, 'dd.MM.yyyy') + " - " + dateFilter(loan.dueDate, 'dd.MM.yyyy') + ", " + loan.subLibrary;
         };
 
     }).controller('MyFinesCtrl', function ($scope, $rootScope, userInfo) {
@@ -58,10 +58,10 @@ angular.module('Solvberget.WebApp')
 
             var toDate= $filter('date');
 
-            var text = "Reservert: " + toDate(reservation.reserved, 'shortDate') + '<br/>';
+            var text = "Reservert: " + toDate(reservation.reserved, 'dd.MM.yyyy') + '<br/>';
 
             if(reservation.readyForPickup) {
-                text += "<strong class='text-success'>Klar til henting nå. Hentefrist: " + toDate(reservation.pickupDeadline, 'shortDate') + "</strong>";
+                text += "<strong class='text-success'>Klar til henting nå. Hentefrist: " + toDate(reservation.pickupDeadline, 'dd.MM.yyyy') + "</strong>";
             }
             else text += "Ikke klar til henting.";
 
